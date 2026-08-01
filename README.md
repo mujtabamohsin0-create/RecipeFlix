@@ -1,6 +1,11 @@
-# RecipeFlix
-RecipeFlix - A Netflix-style recipe sharing platform with video backgrounds, user authentication, and admin controls.
 # 🍽️ RecipeFlix
+
+**Live Demo:** [http://muji.page.gd](http://muji.page.gd)
+
+A full-featured recipe sharing platform inspired by Netflix's UI design...
+
+RecipeFlix - A Netflix-style recipe sharing platform with video backgrounds, user authentication, and admin controls.
+
 
 A full-featured recipe sharing platform inspired by Netflix's UI design. Browse, save, and manage your favorite recipes with a cinematic experience.
 

@@ -1,0 +1,342 @@
+* {margin: 0; padding: 0; box-sizing: border-box;}
+body {
+    background: #141414;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.7) 10%, transparent);
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    transition: background 0.4s ease;
+}
+.logo {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 32px;
+    color: #e50914;
+    text-decoration: none;
+}
+.logo span { color: #fff; }
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+}
+.nav-left a, .nav-right a {
+    color: #e5e5e5;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+}
+.nav-left a:hover { color: #b3b3b3; }
+.btn-login, .btn-logout {
+    background: #e50914;
+    padding: 7px 17px;
+    border-radius: 3px;
+}
+
+/* HERO WITH VIDEO */
+.hero {
+    height: 80vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+    overflow: hidden;
+}
+#heroVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(77deg, rgba(0,0,0,.8) 0, transparent 85%);
+    z-index: -1;
+}
+.hero-content { 
+    max-width: 600px; 
+    z-index: 1; 
+    padding-top: 80px;
+}
+.hero h1 { 
+    font-size: 48px; 
+    margin-bottom: 20px; 
+    text-shadow: 2px 2px 4px rgba(0,0,0,.8);
+    line-height: 1.2;
+}
+.hero p { font-size: 18px; margin-bottom: 20px; }
+.btn-play, .btn-info {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 600;
+}
+
+.btn-play { background: #fff; color: #000; }
+.btn-play:hover { background: rgba(255,255,255,0.8); }
+.btn-info { background: rgba(109,109,110,0.7); color: #fff; }
+.btn-info:hover { background: rgba(109,109,110,0.5); }
+
+/* TRENDING SECTION WITH BACKGROUND */
+.trending-section {
+    background-image: url('img/chicken-biryani-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    padding: 60px 50px;
+    overflow: hidden;
+    margin-top: -30px;
+}
+
+.trending-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    filter: blur(20px) brightness(0.3);
+    transform: scale(1.1);
+    z-index: 1;
+}
+
+.trending-section h2,
+.trending-section .rows {
+    position: relative;
+    z-index: 2;
+}
+
+.trending-section .rows {
+    padding: 0;
+}
+
+/* RECIPE ROWS */
+.rows { padding: 20px 50px; }
+.rows h2 { margin: 20px 0 10px; font-weight: 600; }
+.row-posters {
+    display: flex;
+    overflow-x: auto;
+    padding: 20px 0;
+    scroll-behavior: smooth;
+}
+.row-posters::-webkit-scrollbar { height: 8px; }
+.row-posters::-webkit-scrollbar-track { background: #141414; }
+.row-posters::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+.row-posters::-webkit-scrollbar-thumb:hover { background: #555; }
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.poster {
+    position: relative;
+    margin-right: 10px;
+    transition: transform 450ms;
+    cursor: pointer;
+    animation: fadeUp 0.6s ease forwards;
+    opacity: 0;
+}
+.poster:nth-child(2) { animation-delay: 0.1s; }
+.poster:nth-child(3) { animation-delay: 0.2s; }
+.poster:nth-child(4) { animation-delay: 0.3s; }
+.poster:nth-child(5) { animation-delay: 0.4s; }
+.poster:nth-child(6) { animation-delay: 0.5s; }
+
+.poster:hover { 
+    transform: scale(1.08); 
+    z-index: 10;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+.poster a {
+    text-decoration: none;
+    color: inherit;
+}
+.poster img {
+    width: 250px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+    background: #333;
+}
+.poster-title {
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, transparent 100%);
+    width: 100%;
+    padding: 15px 10px 10px;
+    font-size: 14px;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+    font-weight: 700;
+}
+
+/* RECIPE DETAIL PAGE */
+.recipe-page { 
+    padding-top: 70px;
+    background-image: url('img/chicken-biryani-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    position: relative;
+}
+
+.recipe-page::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 20, 20, 0.92);
+    z-index: 0;
+}
+
+.recipe-page .recipe-hero,
+.recipe-page .recipe-content {
+    position: relative;
+    z-index: 1;
+}
+
+.recipe-hero {
+    height: 60vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    padding: 50px;
+    position: relative;
+}
+.recipe-hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(20,20,20,0.9) 0%, transparent 50%);
+}
+.recipe-hero h1 { 
+    font-size: 56px; 
+    text-shadow: 2px 2px 4px rgba(0,0,0,.8); 
+    z-index: 1;
+    line-height: 1.1;
+}
+.recipe-content { 
+    padding: 30px 50px; 
+    max-width: 800px;
+    background: rgba(20, 20, 20, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    margin: 30px 50px 50px;
+}
+.recipe-meta span { margin-right: 20px; color: #46d369; font-weight: 600; }
+.recipe-content h3 { margin: 30px 0 15px; color: #e5e5e5; }
+.recipe-content pre {
+    white-space: pre-wrap;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.8;
+    color: #d2d2d2;
+}
+
+/* LOGIN PAGE */
+.login-body {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/login-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    margin: 0;
+}
+.login-box {
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.1);
+    max-width: 450px;
+    margin: 100px auto;
+    padding: 60px;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+.login-box h1 { margin-bottom: 30px; }
+.login-box input {
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 16px;
+    background: #333;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+}
+.login-box input:focus {
+    background: #454545;
+    outline: none;
+}
+.login-box button {
+    width: 100%;
+    padding: 16px;
+    background: #e50914;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 24px;
+}
+.login-box button:hover { background: #f40612; }
+.error { color: #e87c03; margin-bottom: 15px; }
+
+/* SEARCH BAR */
+#searchInput, #categoryFilter {
+    background: rgba(0,0,0,0.5);
+    border: 1px solid #333;
+    color: #fff;
+    padding: 7px 10px;
+    margin: 0 5px;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+}
+#searchInput::placeholder { color: #8c8c8c; }
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+    .navbar { padding: 15px 20px; flex-wrap: wrap; }
+    .nav-left a:not(.logo) { display: none; }
+    .nav-left { flex-wrap: wrap; gap: 10px; width: 100%; }
+    #searchInput, #categoryFilter { width: 100%; margin: 5px 0; }
+    .logo { font-size: 24px; }
+    .hero { padding: 0 20px; height: 60vh; }
+    .hero h1 { font-size: 28px; }
+    .hero p { font-size: 16px; }
+    .hero-content { padding-top: 100px; max-width: 100%; }
+    .rows { padding: 20px 20px; }
+    .trending-section { padding: 40px 20px; }
+    .poster img { width: 140px; height: 80px; }
+    .login-box { margin: 60px 20px; padding: 40px 25px; }
+    .recipe-hero { padding: 30px 20px; }
+    .recipe-hero h1 { font-size: 36px; }
+    .recipe-content { padding: 20px; margin: 20px; }
+}
